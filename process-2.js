@@ -29,4 +29,6 @@ console.log("CURRENT PLATFORM ->", process.platform)
 
 console.log("RELEASE INFO ->", process.release)
 
-console.log('REPORT ->', process.report)
+console.log('REPORT ->', process.report.compact)
+
+console.log("USAGE ->", process.resourceUsage())
