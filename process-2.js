@@ -15,4 +15,4 @@ console.log("ARGUMENTS FROM THE COMMAND LINE", process.argv)
 
 console.log('current dir -> ', process.cwd())
 
-process.chdir('/home/vansham/SANCTUM/MISC-PROJECTS/practice/another')
+console.log('config options -> ', process.config)
