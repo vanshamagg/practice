@@ -1,0 +1,23 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "process-2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanshamagg/practice.git"
+  },
+  "keywords": [],
+  "author": "Vansham Aggarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanshamagg/practice/issues"
+  },
+  "homepage": "https://github.com/vanshamagg/practice#readme",
+  "dependencies": {
+    "@types/node": "^14.14.35"
+  }
+}
