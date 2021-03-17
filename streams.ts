@@ -32,3 +32,5 @@ console.log(process.stdout.writableLength)
 
 const status = process.stdout.write("SOME WEIRD WORDS \n")
 console.log(status)
+
+process.stdout.clearScreenDown()
