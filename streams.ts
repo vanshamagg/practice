@@ -29,3 +29,6 @@ console.log(process.stdout.writableHighWaterMark)
 console.log(process.stdout.writableFinished)
 console.log(process.stdout.writableCorked)
 console.log(process.stdout.writableLength)
+
+const status = process.stdout.write("SOME WEIRD WORDS \n")
+console.log(status)
