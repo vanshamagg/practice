@@ -12,7 +12,7 @@ const readable = createReadStream('some-file.json', { encoding: 'utf-8' })
 
 // })
 
-readable.pipe(process.stdout)
+// readable.pipe(process.stdout)
 
 process.stdout.cork()
 process.stdout.write("SOMETHING \n")
