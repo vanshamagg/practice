@@ -1,6 +1,5 @@
 import { createReadStream } from 'fs';
-import { read } from 'fs/promises';
-
+import { Writable } from 'stream'
 
 const readable = createReadStream('some-file.json', { encoding: 'utf-8' })
 
@@ -21,6 +20,7 @@ process.stdout.write("ELSE \n")
 console.log(process.stdout.writableCorked)
 
 
+
 process.stdout.uncork()
 process.stdout.uncork()
 
@@ -30,7 +30,7 @@ console.log(process.stdout.writableFinished)
 console.log(process.stdout.writableCorked)
 console.log(process.stdout.writableLength)
 
-const status = process.stdout.write("SOME WEIRD WORDS \n")
+const status = process.stdout.write("SOME WEIRD WORDS ")
 console.log(status)
 
-process.stdout.clearScreenDown()
+const writable = new Writable()
