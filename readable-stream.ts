@@ -1,13 +1,12 @@
 import { createReadStream } from 'fs'
 
-const readable = createReadStream('some-file.json', { encoding: 'utf8' })
+const readable = createReadStream('some-file.json', { highWaterMark: 1024, encoding: 'utf-8' })
+readable.pause()
+console.log('--- IS PAUSED? ', readable.isPaused());
 
-readable.on('readable',  _ => {
-    console.info('---- NEW DATA IN BUFFER')
+const interval = setInterval(() => {
+    let chunk = readable.read();
+    console.log(chunk)
+}, 1000)
 
-    let chunk;
-    while((chunk = readable.read(500))) {
-        console.log(chunk)
-    }
-
-})
+readable.on('end', () => clearInterval(interval))
