@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="/socket.io/socket.io.js"></script>
+        <script></script>
+    </head>
+    <body>
+        <h1>The Most Boring chat interface</h1>
+        <ul id="chatbox"></ul>
+        <form>
+            <input type="text" name="message" id="message" />
+            <input type="submit" name="send" id="send" value="SEND MESSAGE" />
+        </form>
+
+        <script>
+            var socket = io();
+            const button = document.querySelector("form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const text = document.querySelector("#message").value;
+                socket.emit("chat_message", { message: text });
+
+                const message = document.createElement("li");
+                message.innerText = text;
+
+                document.querySelector("#chatbox").appendChild(message);
+                document.querySelector("#message").value = "";
+            });
+
+            // on receiving a message
+            socket.on("chat_message", (payload) => {
+                console.log(payload);
+                const message = document.createElement("li");
+                message.innerText = payload.message;
+                document.querySelector("#chatbox").appendChild(message);
+            });
+        </script>
+    </body>
+</html>
