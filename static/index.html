@@ -14,10 +14,12 @@
         <form>
             <input type="text" name="message" id="message" />
             <input type="submit" name="send" id="send" value="SEND MESSAGE" />
+            <input type="button" value="SEND A CHAT" , id="chatButton" />
         </form>
 
         <script>
             var socket = io();
+            var chatSocket = io("/chat");
             const button = document.querySelector("form").addEventListener("submit", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -29,6 +31,14 @@
 
                 document.querySelector("#chatbox").appendChild(message);
                 document.querySelector("#message").value = "";
+            });
+
+            // to /chat namespace
+            document.querySelector("#chatButton").addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                chatSocket.emit("chat_message", { message: "HELLO BROTHER!" });
+                // chatSocket.emit()
             });
 
             // on receiving a message
