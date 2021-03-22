@@ -1,3 +1,3 @@
 import { Server } from 'socket.io';
 
-export const io = new Server()
+export const io = new Server({})
