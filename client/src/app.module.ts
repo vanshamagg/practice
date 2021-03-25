@@ -7,10 +7,10 @@ import { ClientsModule, Transport } from '@nestjs/microservices'
   imports: [ClientsModule.register([
     {
       name: "MATH_SERVICE",
-      transport: Transport.TCP,
+      transport: Transport.REDIS,
       options: {
         host: '127.0.0.1',
-        port: 3002
+        port: 6379
       }
     }
   ])],

@@ -12,6 +12,6 @@ export class AppService {
   }
 
   getSum(data: number[]) {
-    return this.mathService.send('add', [1, 2, 3, 4])
+    return this.mathService.emit('random', [1, 2, 3, 4]).subscribe(data =>  console.log('FROM MICROSERVICE', data))
   }
 }
