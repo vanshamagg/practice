@@ -14,79 +14,78 @@ const nameObj = {
     n3: "Vansh",
     n4: "Maryam"
 }
-// each parallel
-// each(
-//     nameArr,
+each(
+    nameArr,
 
-//     (item, callback) => {
-//         console.log('PRINTING, ', item)
-//     },
-//     (err) => {
-//         if (err) {
-//             console.info('something stopped the processing')
-//             throw err
+    (item, callback) => {
+        console.log('PRINTING, ', item)
+    },
+    (err) => {
+        if (err) {
+            console.info('something stopped the processing')
+            throw err
 
-//         } console.log("OP COMPLETED")
-//     }
-// )
+        } console.log("OP COMPLETED")
+    }
+)
 
 // each parallel with a limit
-// eachLimit(
-//     nameArr,
-//     1,
-//     (item, cb) => {
-//         console.log('PRINTING -> ', item)
-//         cb()
-//     },
-//     (err) => {
+eachLimit(
+    nameArr,
+    1,
+    (item, cb) => {
+        console.log('PRINTING -> ', item)
+        cb()
+    },
+    (err) => {
 
-//     }
-// )
+    }
+)
 
-// every(
-//     [
-//         'Vansham',
-//         1,
-//         'Navpreet'
-//     ],
-//     (item, cb) => {
-//         if (typeof item !== 'string')
-//             cb(new Error('not a string'), false)
+every(
+    [
+        'Vansham',
+        1,
+        'Navpreet'
+    ],
+    (item, cb) => {
+        if (typeof item !== 'string')
+            cb(new Error('not a string'), false)
 
-//         process.stdout.write(item + '\n')
-//         cb(null, true)
+        process.stdout.write(item + '\n')
+        cb(null, true)
 
-//     },
-//     (err) => {
-//         if (err) throw err
-//     }
+    },
+    (err) => {
+        if (err) throw err
+    }
 
-// )
+)
 
-// filter(
-//     nameArr,
-//     (item, cb) => {
-//         if (item.includes('V'))
-//             cb(null, true)
-//         else
-//             cb(null, false)
-//     },
-//     (err, result) => {
-//         if (err) throw err
-//         process.stdout.write(result + '\n')
-//     }
-// )
+filter(
+    nameArr,
+    (item, cb) => {
+        if (item.includes('V'))
+            cb(null, true)
+        else
+            cb(null, false)
+    },
+    (err, result) => {
+        if (err) throw err
+        process.stdout.write(result + '\n')
+    }
+)
 
-// mapValues(
-//     nameObj,
-//     (value, key, cb) => {
-//         cb(null, 'Mr. ' + value)
-//     },
-//     (err, result) => {
-//         if (err) throw err
-//         console.log(result)
-//     }
-// )
+mapValues(
+    nameObj,
+    (value, key, cb) => {
+        cb(null, 'Mr. ' + value)
+    },
+    (err, result) => {
+        if (err) throw err
+        console.log(result)
+    }
+)
 
 const fn1 = function (name) {
     console.info(name)
