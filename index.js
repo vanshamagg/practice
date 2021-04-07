@@ -1,16 +1,14 @@
-
-/**
- * Industry-grade function to compute sum of n arguments 
- */
-function calcSum(...args) {
-
-    var totalSum = 0;
-    for (let number of args) {
-       totalSum += number
-    }
-
-    return totalSum
-}
+const parseCookies = (cookie = '') =>
+    cookie
+        .split(';')
+        .map(v => v.split('='))
+        .map(([k, ...vs]) => [k, vs.join('=')])
+        .reduce((acc, [k, v]) => {
+            acc[k.trim()] = decodeURIComponent(v);
+            return acc;
+        }, {});
 
 
-calcSum(1, 2, 3, 4, 5, 6)
+const str = parseCookies('mycookie=Hello World=yeah;user.id=uasdusadg')
+
+console.log(str)
