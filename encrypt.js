@@ -1,22 +1,30 @@
-const crypto = require('crypto')
+const crypto = require('crypto');
+const { createImportEqualsDeclaration } = require('typescript');
 
-const algo = 'aes-128-ocb';
-const password = 'password for the key';
-const key = crypto.scryptSync(password, 'SALT', 12);
-const Ivector = Buffer.from('111111111111')
-console.log(Ivector.length)
-// const cipher = crypto.createCipher(algo, key);
-const cipher = crypto.createCipheriv(algo, key, Ivector, { authTagLength: 16 })
+const algo = 'aes128';
+const key = crypto.scryptSync(
+    'password',
+    'salt',
+    256 / 8,
+)
+
+const cipher = crypto.createCipher(algo, key)
+cipher.setEncoding('hex')
 
 let encrypted = '';
-cipher.setEncoding('hex')
-cipher
-    .on('data', (chunk) => {
-        encrypted += chunk;
-    })
-    .on('end', () => {
-        console.log(encrypted)
-    })
 
-cipher.write('Some random piece of shit text');
+cipher.on('data', (data) => encrypted += data)
+cipher.on('end', _ => console.log(encrypted))
+
+const data = JSON.stringify({
+    message: {
+        new: "World will end"
+    }
+})
+cipher.write(data);
 cipher.end()
+
+
+
+
+
