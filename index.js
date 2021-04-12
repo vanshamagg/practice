@@ -12,3 +12,6 @@ const parseCookies = (cookie = '') =>
 const str = parseCookies('mycookie=Hello World=yeah;user.id=uasdusadg')
 
 console.log(str)
+
+
+exports.SOME_VAR = 'vansham'
