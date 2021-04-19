@@ -1,13 +1,12 @@
 const { until } = require('async');
 const crypto = require('crypto');
-const { createTupleTypeNode } = require('typescript');
 
-// scrypt hashing
-const hash = crypto.scryptSync(
-    "random",
-    "salt string",
-    1
-).toString('hex')
+// // scrypt hashing
+// const hash = crypto.scryptSync(
+//     "random",
+//     "salt string",
+//     1
+// ).toString('hex')
 
 
 // CIPHER
@@ -34,4 +33,10 @@ const hash = crypto.scryptSync(
 
 
 
-console.log(crypto.getCiphers())
+// console.log(crypto.getCiphers())
+
+console.clear()
+
+const random = crypto.randomBytes(1).toString('hex')
+
+console.log(random)
