@@ -16,3 +16,5 @@ console.info(`
 
 console.info('PARENT >>', process.ppid)
 console.info('THIS (CHILD) >>', process.pid)
+
+// process.exit()
