@@ -2,6 +2,7 @@
     "compilerOptions": {
         "strict": false,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "noStrictGenericChecks": true
     }
 }
