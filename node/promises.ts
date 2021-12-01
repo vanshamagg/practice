@@ -1,12 +1,16 @@
-function cancel() {
-    console.log(this)
+import { scrypt } from 'crypto';
+import { promisify } from 'util';
+
+async function randomFunc(input: 'true' | 'false') {
+
+  return new Promise((rs, rj) => {
+
+  });
+
+
 }
 
-(async => {
-    const pr = new Promise((resolve, reject) => {
-        reject('Vansham')
-        // setTimeout(() => reject('Vansham'), 5000);
-    });
 
-    cancel.call(pr)
-})();
+randomFunc('true')
+  .then(console.info)
+  .catch(console.error);

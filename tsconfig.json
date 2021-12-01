@@ -3,6 +3,8 @@
         "strict": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "noStrictGenericChecks": true
+        "noStrictGenericChecks": true,
+        "allowUnreachableCode": true,
+        "esModuleInterop": true
     }
 }
