@@ -4,7 +4,7 @@ class Schema {
 
   constructor(
     public readonly name: string,
-    public readonly age: number
+    public readonly age: numberasas
   ) {}
 
 }
